@@ -3,9 +3,9 @@ package mastermind;
 import java.util.Random;
 import java.util.Collections;
 
-class SecretCombination extends Combination {
+public class SecretCombination extends Combination {
 
-	SecretCombination() {
+	public SecretCombination() {
 		for(Color color : Color.values()){
 			this.colors.add(color);
 		}

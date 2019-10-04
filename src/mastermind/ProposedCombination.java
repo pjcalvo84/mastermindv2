@@ -1,6 +1,6 @@
 package mastermind;
 
-class ProposedCombination extends Combination {
+public class ProposedCombination extends Combination {
 
 	void write() {
 		for (Color color : this.colors) {

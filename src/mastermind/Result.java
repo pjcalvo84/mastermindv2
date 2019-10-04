@@ -2,7 +2,7 @@ package mastermind;
 
 import santaTecla.utils.WithConsoleModel;
 
-class Result extends WithConsoleModel{
+public class Result extends WithConsoleModel{
 
 	private int blacks = 0;
 
@@ -15,7 +15,7 @@ class Result extends WithConsoleModel{
 		this.whites = whites;
 	}
 
-	boolean isWinner() {
+	public boolean isWinner() {
 		return this.blacks == Combination.getWidth();
 	}
 

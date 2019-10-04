@@ -2,7 +2,7 @@ package mastermind;
 
 import santaTecla.utils.Console;
 
-enum Message {
+public enum Message {
 	ATTEMPTS("#attempts attempt(s): "), 
 	SECRET("*"), 
 	RESUME("Do you want to continue"), 
@@ -24,11 +24,11 @@ enum Message {
 		this.message = message;
 	}
 
-	void write() {
+	public void write() {
 		Message.console.write(this.message);
 	}
 
-	void writeln() {
+	public void writeln() {
 		Message.console.writeln(this.message);
 	}
 
