@@ -2,6 +2,15 @@ package mastermind;
 
 import java.util.List;
 import java.util.ArrayList;
+
+import mastermind.controller.Controller;
+import mastermind.controller.Logic;
+import mastermind.models.Message;
+import mastermind.models.ProposedCombination;
+import mastermind.models.Result;
+import mastermind.models.SecretCombination;
+import mastermind.view.View;
+import mastermind.view.console.ConsoleView;
 import santaTecla.utils.WithConsoleModel;
 import santaTecla.utils.YesNoDialog;
 
@@ -12,8 +21,13 @@ public class Mastermind extends WithConsoleModel {
 	private List<ProposedCombination> proposedCombinations;
 	private List<Result> results;
 
+	private Logic logic;
+	private View view;
+
 	private Mastermind() {
-		this.clear();
+		this.logic = new Logic();
+		this.view = new ConsoleView();
+		//this.clear();
 	}
 
 	private void clear() {
@@ -22,20 +36,29 @@ public class Mastermind extends WithConsoleModel {
 		this.results = new ArrayList<Result>();
 	}
 
+	public void play() {
+		Controller controller;
+		do {
+			controller = this.logic.getController();
+			this.view.interact(controller);
+		} while (controller != null);
+	}
+
+	/*
 	private void play() {
 		Message.TITLE.writeln();
 		this.secretCombination.writeln();
 		do {
 			do {
 				ProposedCombination proposedCombination = new ProposedCombination();
-				proposedCombination.read();
+				proposedCombination.rerybad();
 				this.proposedCombinations.add(proposedCombination);
 				this.results.add(this.secretCombination.getResult(proposedCombination));
 				this.writeln();
 			} while (!isFinished());
 		} while (this.isResumed());
 	}
-
+    */
 	private void writeln() {
 		this.console.writeln();
 		Message.ATTEMPTS.writeln(this.getAttemps());

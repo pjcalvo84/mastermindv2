@@ -1,4 +1,4 @@
-package mastermind;
+package mastermind.models;
 
 import java.util.Random;
 import java.util.Collections;
@@ -17,7 +17,7 @@ public class SecretCombination extends Combination {
 		Collections.shuffle(this.colors);
 	}
 
-	Result getResult(ProposedCombination proposedCombination) {
+	public Result getResult(ProposedCombination proposedCombination) {
 		int blacks = 0;
 		for (int i=0; i<this.colors.size(); i++) {
 			if (proposedCombination.contains(this.colors.get(i), i)) {
@@ -33,7 +33,7 @@ public class SecretCombination extends Combination {
 		return new Result(blacks, whites - blacks);
 	}
 
-	void writeln() {
+	public void writeln() {
 		for (int i = 0; i < this.colors.size(); i++) {
 			Message.SECRET.write();
 		}

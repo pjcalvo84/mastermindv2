@@ -1,10 +1,10 @@
-package mastermind;
+package mastermind.models;
 
 import java.util.List;
 import java.util.ArrayList;
 import santaTecla.utils.WithConsoleModel;
 
-abstract class Combination extends WithConsoleModel {
+public abstract class Combination extends WithConsoleModel {
 	
 	private static final int WIDTH = 4;
 
@@ -14,7 +14,7 @@ abstract class Combination extends WithConsoleModel {
 		this.colors = new ArrayList<Color>();
 	}
 	
-	static int getWidth() {
+	public static int getWidth() {
 		return Combination.WIDTH;
 	}
 	

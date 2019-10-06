@@ -1,9 +1,12 @@
 package mastermind.controller;
 
+import mastermind.models.ProposedCombination;
+import mastermind.models.Result;
+import mastermind.models.SecretCombination;
 import mastermind.models.Game;
 import mastermind.models.State;
 
-import java.util.Stack;
+import java.util.List;
 
 public abstract class Controller {
 
@@ -16,26 +19,36 @@ public abstract class Controller {
         this.state = state;
     }
 
-//    public Card peekStock() {
-//        return this.game.peekStock();
-//    }
-//
-//    public Card peekWaste() {
-//        return this.game.peekWaste();
-//    }
-//
-//    public Card peekFoundation(Suit suit) {
-//        return this.game.peekFoundation(suit);
-//    }
-//
-//
-//    public Stack<Card> getPileCards(int index) {
-//        return this.game.getPileCards(index);
-//    }
-//
-//    public int getNumberOfFaceUpCardsInPile(int index) {
-//        return this.game.getNumberOfFaceUpCardsInPile(index);
-//    }
+    public int getAttempts(){
+        return this.game.getAttempts();
+    }
+    public void clear (){
+        this.game.clear();
+    }
+
+    public boolean isFinished() {
+        return this.game.isFinished();
+    }
+
+    private boolean isResumed() {
+        return this.game.isResumed();
+    }
+
+    public SecretCombination getSecretCombination(){
+        return this.game.getSecretCombination();
+    }
+
+    public List<ProposedCombination> getProposedCombinations(){
+        return this.game.getProposedCombinations();
+    }
+
+    public void addProposedCombination(ProposedCombination proposedCombination){
+        this.game.addProposedCombination(proposedCombination);
+    }
+
+    public List<Result> getResults(){
+        return this.game.getResults();
+    }
 
     public abstract void accept(ControllerVisitor controllerVisitor);
 

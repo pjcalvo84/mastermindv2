@@ -1,4 +1,4 @@
-package mastermind;
+package mastermind.models;
 
 import santaTecla.utils.Console;
 
@@ -32,11 +32,11 @@ public enum Message {
 		Message.console.writeln(this.message);
 	}
 
-	void writeln(int attempts) {
+	public void writeln(int attempts) {
 		Message.console.writeln(this.message.replaceAll("#attempts", "" + attempts));
 	}
 
-	void writeln(int blacks, int whites) {
+	public void writeln(int blacks, int whites) {
 		Message.console.writeln(this.message.replaceFirst("#blacks", "" + blacks).replaceFirst("#whites", "" + whites));
 	}
 

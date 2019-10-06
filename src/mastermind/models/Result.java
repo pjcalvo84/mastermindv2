@@ -1,8 +1,8 @@
-package mastermind;
+package mastermind.models;
 
 import santaTecla.utils.WithConsoleModel;
 
-public class Result extends WithConsoleModel{
+public class Result{
 
 	private int blacks = 0;
 
@@ -19,8 +19,16 @@ public class Result extends WithConsoleModel{
 		return this.blacks == Combination.getWidth();
 	}
 
-	void writeln() {
+	public void writeln() {
 		Message.RESULT.writeln(this.blacks, this.whites);
+	}
+
+	public int getBlacks(){
+		return this.blacks;
+	}
+
+	public int getWhites(){
+		return this.whites;
 	}
 	
 }

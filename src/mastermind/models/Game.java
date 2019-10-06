@@ -1,6 +1,5 @@
 package mastermind.models;
 
-import mastermind.*;
 import santaTecla.utils.YesNoDialog;
 
 import java.util.*;
@@ -22,7 +21,10 @@ public class Game {
         this.results = new ArrayList<Result>();
     }
 
-    private boolean isFinished() {
+    public int getAttempts(){
+        return proposedCombinations.size();
+    }
+    public boolean isFinished() {
         if (this.results.get(this.getAttemps() - 1).isWinner()) {
             Message.WINNER.writeln();
             return true;
@@ -38,7 +40,7 @@ public class Game {
         return this.proposedCombinations.size();
     }
 
-    private boolean isResumed() {
+    public boolean isResumed() {
         boolean resumed;
         Message.RESUME.write();
         resumed = new YesNoDialog().read();
@@ -46,5 +48,29 @@ public class Game {
             this.clear();
         }
         return resumed;
+    }
+
+    public SecretCombination getSecretCombination(){
+        return secretCombination;
+    }
+
+    public List<ProposedCombination> getProposedCombinations(){
+        return proposedCombinations;
+    }
+
+    public void addProposedCombination(ProposedCombination proposedCombination){
+        proposedCombinations.add(proposedCombination);
+    }
+
+    public void setResult(Result result){
+        results.add(result);
+    }
+
+    public List<Result> getResults(){
+        return this.results;
+    }
+
+    public ProposedCombination getLastProposedCombination(){
+        return proposedCombinations.get(proposedCombinations.size()-1);
     }
 }
